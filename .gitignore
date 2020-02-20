@@ -1,3 +1,6 @@
+# Linux files
+.directory
+
 # Built application files
 *.apk
 *.aar
