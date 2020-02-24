@@ -1,0 +1,2 @@
+rootProject.name='ViewBindList'
+include ':app'
