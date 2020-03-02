@@ -90,9 +90,11 @@ class SecondHolder(sBinding: SecondListItemBinding) :
             binding.cvFirstItem.setOnClickListener { _clickListener(content) }
         }
     }
+
+
 }
 
-const val TYPE_PAIR = 0
-const val TYPE_SINGLE = 1
+const val TYPE_PAIR = R.layout.first_list_item
+const val TYPE_SINGLE = R.layout.second_list_item
 
 class NoSuchListItemType(message: String) : RuntimeException(message)
