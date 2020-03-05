@@ -1,6 +1,7 @@
 package dev.biasin.playground.viewbindlist
 
 import MultiListItem
+import android.util.Log
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
@@ -17,13 +18,19 @@ abstract class GenericAdapter(
     override fun getItemCount(): Int = itemList.size
 
     override fun getItemViewType(position: Int): Int = itemList[position].type
-
 }
 
 abstract class GenericHolder(binding: ViewBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
+    private var _binding: ViewBinding? = binding
+    private val binding get() = _binding!!
+
     abstract fun bind(item: MultiListItem, clickListener: (ListResponse) -> Unit)
+
+    fun onDestroy(){
+        _binding = null
+    }
 }
 
 class SecondGenericHolder(tBinding: SecondListItemBinding): GenericHolder(tBinding){
